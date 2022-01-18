@@ -1,6 +1,6 @@
-package avans.avd.rent_my_car_android_app.data
+package avans.avd.rent_my_car_android_app.ui.login.data
 
-import avans.avd.rent_my_car_android_app.data.model.LoggedInUser
+import avans.avd.rent_my_car_android_app.model.LoggedInUser
 import java.io.IOException
 
 /**

@@ -1,4 +1,4 @@
-package avans.avd.rent_my_car_android_app.data
+package avans.avd.rent_my_car_android_app.ui.login.data
 
 /**
  * A generic class that holds a value with its loading status.

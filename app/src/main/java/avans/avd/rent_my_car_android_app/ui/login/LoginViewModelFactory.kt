@@ -2,8 +2,8 @@ package avans.avd.rent_my_car_android_app.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import avans.avd.rent_my_car_android_app.data.LoginDataSource
-import avans.avd.rent_my_car_android_app.data.LoginRepository
+import avans.avd.rent_my_car_android_app.ui.login.data.LoginDataSource
+import avans.avd.rent_my_car_android_app.ui.login.data.LoginRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

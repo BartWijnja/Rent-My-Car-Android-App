@@ -1,4 +1,4 @@
-package avans.avd.rent_my_car_android_app.data.model
+package avans.avd.rent_my_car_android_app.model
 
 data class Location(
     val id: Long,

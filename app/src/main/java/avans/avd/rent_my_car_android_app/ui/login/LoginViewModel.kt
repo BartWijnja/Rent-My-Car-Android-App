@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import avans.avd.rent_my_car_android_app.data.LoginRepository
-import avans.avd.rent_my_car_android_app.data.Result
+import avans.avd.rent_my_car_android_app.ui.login.data.LoginRepository
+import avans.avd.rent_my_car_android_app.ui.login.data.Result
 
 import avans.avd.rent_my_car_android_app.R
 
