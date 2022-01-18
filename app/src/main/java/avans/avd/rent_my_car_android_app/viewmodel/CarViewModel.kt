@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import avans.avd.rent_my_car_android_app.api.item.CarItem
+import avans.avd.rent_my_car_android_app.api.room.Car
 import avans.avd.rent_my_car_android_app.api.service.CarApi
 import kotlinx.coroutines.launch
 
@@ -27,7 +27,7 @@ class CarViewModel : ViewModel() {
     fun getCarItems() {
         viewModelScope.launch {
             try {
-                Log.i(TAG, "getCarItems: launch started")
+                Log.i(TAG, "getCars: launch started")
                 _carResponse.value = CarApi.retrofitService.findAll().toString()
             } catch (e: Exception) {
                 _carResponse.value = e.message.toString()
@@ -35,12 +35,12 @@ class CarViewModel : ViewModel() {
         }
     }
 
-    fun postCarItem(carItem: CarItem) {
+    fun postCarItem(car: Car) {
         viewModelScope.launch {
             try {
-                CarApi.retrofitService.postCar(carItem)
-                Log.i(TAG, "postCarItem: $carItem posted")
-                _carResponse.value = "postCarItem: $carItem posted"
+                CarApi.retrofitService.postCar(car)
+                Log.i(TAG, "postCar: $car posted")
+                _carResponse.value = "postCar: $car posted"
             } catch (e: Exception) {
                 _carResponse.value = e.message.toString()
             }
@@ -51,8 +51,8 @@ class CarViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 CarApi.retrofitService.deleteCar(carId)
-                Log.i(TAG, "deleteCarItem: $carId deleted")
-                _carResponse.value = "deleteCarItem: $carId deleted"
+                Log.i(TAG, "deleteCar: $carId deleted")
+                _carResponse.value = "deleteCar: $carId deleted"
             }  catch (e: Exception) {
                 _carResponse.value = e.message.toString()
             }

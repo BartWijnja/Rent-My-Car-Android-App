@@ -1,10 +1,10 @@
-package avans.avd.rent_my_car_android_app.api.item
+package avans.avd.rent_my_car_android_app.api.room
 
 import com.squareup.moshi.Json
 
-data class CarItem(
+data class Car(
 
-    @Json(name = "car_id")
+    @Json(name = "id")
     val id: Int? = null,
 
     @Json(name = "brand")
