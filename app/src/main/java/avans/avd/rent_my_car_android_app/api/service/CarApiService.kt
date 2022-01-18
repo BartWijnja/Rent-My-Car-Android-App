@@ -1,6 +1,6 @@
 package avans.avd.rent_my_car_android_app.api.service
 
-import avans.avd.rent_my_car_android_app.api.room.Car
+import avans.avd.rent_my_car_android_app.model.Car
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Response
@@ -30,16 +30,19 @@ interface CarApiService {
     suspend fun findAll(): Response<List<Car>>
 
     @GET("/cars/{id}")
-    fun findById(@Path("id") id: Long): Response<Car>
+    suspend fun findById(@Path("id") id: Long): Response<Car>
 
     @GET("/cars/name/{name}")
-    fun findByName(@Path("name") id: String): Response<List<Car>>
+    suspend fun findByName(@Path("name") id: String): Response<List<Car>>
 
     @GET("/cars/type/{carType}")
-    fun findByCarType(@Path("carType") id: String): Response<List<Car>>
+    suspend fun findByCarType(@Path("carType") id: String): Response<List<Car>>
 
-    @POST(value = "cars")
+    @POST("/cars")
     suspend fun postCar(@Body car: Car): Car
+
+    @PUT("/{id}")
+    suspend fun putCar(@Path("id") id: Int, @Body car: Car): Response<Car>
 
     @DELETE("cars/{id}")
     suspend fun deleteCar(@Path("id") carId: Int)
