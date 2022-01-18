@@ -1,9 +1,13 @@
 package avans.avd.rent_my_car_android_app.api.room
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
+@Entity
 data class Car(
 
+    @PrimaryKey(autoGenerate = true)
     @Json(name = "id")
     val id: Int? = null,
 
