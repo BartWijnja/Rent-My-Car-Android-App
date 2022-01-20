@@ -1,4 +1,4 @@
-package avans.avd.rent_my_car_android_app.api.room
+package avans.avd.rent_my_car_android_app.room
 
 import android.content.Context
 import androidx.room.Database
@@ -72,7 +72,7 @@ abstract class RmcDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         RmcDatabase::class.java,
-                        "sleep_history_database"
+                        "de79jld8b6dd72"
                     )
                         // Wipes and rebuilds instead of migrating if no Migration object.
                         // Migration is not part of this lesson. You can learn more about

@@ -1,4 +1,4 @@
-package avans.avd.rent_my_car_android_app.api.room
+package avans.avd.rent_my_car_android_app.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

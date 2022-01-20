@@ -1,4 +1,4 @@
-package avans.avd.rent_my_car_android_app.activity
+package avans.avd.rent_my_car_android_app.fragment
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import avans.avd.rent_my_car_android_app.databinding.ActivityCarBinding
 import avans.avd.rent_my_car_android_app.viewmodel.CarViewModel
 
-class CarActivity: AppCompatActivity() {
+class CarFragment: AppCompatActivity() {
 
     private lateinit var binding: ActivityCarBinding
 
