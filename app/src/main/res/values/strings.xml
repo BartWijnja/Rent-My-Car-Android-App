@@ -16,5 +16,6 @@
     <string name="delete">DELETE</string>
     <string name="post">POST</string>
     <string name="get">GET</string>
+    <string name="currently_rented_cars">Currently rented cars</string>
 
 </resources>
