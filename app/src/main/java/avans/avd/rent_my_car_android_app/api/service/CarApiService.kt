@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
 
-private const val BASE_URL = "http://192.168.100.21:8080"
+private const val BASE_URL = "https://rent-my-car-api-avans.herokuapp.com/"
 
 // For parsing the json result: add a Moshi builder
 private val moshi = Moshi.Builder()

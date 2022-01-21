@@ -8,15 +8,15 @@ import androidx.room.Query
 @Dao
 interface CarDao {
 
-    @Query(" SELECT * FROM cars WHERE id = :key ")
-    suspend fun getCar(key: Int): Car
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun createCar(item: Car): Long
-
-    @Query(" DELETE FROM cars WHERE id = :key ")
-    suspend fun deleteCar(key: Int)
-
-    @Query(" DELETE FROM cars ")
-    suspend fun clear()
+//    @Query(" SELECT * FROM cars WHERE id = :key ")
+//    suspend fun getCar(key: Int): Car
+//
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    suspend fun createCar(item: Car): Long
+//
+//    @Query(" DELETE FROM cars WHERE id = :key ")
+//    suspend fun deleteCar(key: Int)
+//
+//    @Query(" DELETE FROM cars ")
+//    suspend fun clear()
 }

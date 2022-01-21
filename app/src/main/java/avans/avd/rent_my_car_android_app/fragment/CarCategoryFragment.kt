@@ -7,6 +7,6 @@ import avans.avd.rent_my_car_android_app.R
 class CarCategoryFragment : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_homepage)
+        setContentView(R.layout.fragment_homepage)
     }
 }

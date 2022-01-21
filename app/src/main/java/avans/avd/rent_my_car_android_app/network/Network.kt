@@ -9,7 +9,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object Network {
 
-    private const val BASE_URL = "http://192.168.100.21:8080"
+    private const val BASE_URL = "ec2-52-19-164-214.eu-west-1.compute.amazonaws.com:5432/d24i5gbdq6ggme?password=84b87081c63227299edc5ed14407e64280489513eaced95f9088562acb891b32&sslmode=require&user=fgajtkgcieympk"
 
     // For parsing the json result: add a Moshi builder
     private val moshi = Moshi.Builder()

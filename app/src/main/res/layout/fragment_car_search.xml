@@ -4,28 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.CarCategoryFragment">
+    tools:context=".fragment.CarSearchFragment">
 
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="74dp"
-        android:layout_height="59dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toTopOf="@id/barrier1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/barrier1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:mipmap/sym_def_app_icon" />
 
     <ImageView
         android:id="@+id/menuIcon"
-        android:layout_width="74dp"
-        android:layout_height="59dp"
-        app:srcCompat="@drawable/ic_menu_icon_rmc"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@id/barrier1"
         app:layout_constraintEnd_toStartOf="@id/logo"
-        app:layout_constraintBottom_toBottomOf="@id/barrier1" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_menu_icon_rmc" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier1"

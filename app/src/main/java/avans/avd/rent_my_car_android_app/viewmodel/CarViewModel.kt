@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import avans.avd.rent_my_car_android_app.api.room.Car
+
 import avans.avd.rent_my_car_android_app.api.service.CarApi
 import kotlinx.coroutines.launch
 
@@ -35,17 +35,17 @@ class CarViewModel : ViewModel() {
         }
     }
 
-    fun postCarItem(car: Car) {
-        viewModelScope.launch {
-            try {
-                CarApi.retrofitService.postCar(car)
-                Log.i(TAG, "postCar: $car posted")
-                _carResponse.value = "postCar: $car posted"
-            } catch (e: Exception) {
-                _carResponse.value = e.message.toString()
-            }
-        }
-    }
+//    fun postCarItem(car: Car) {
+//        viewModelScope.launch {
+//            try {
+//                CarApi.retrofitService.postCar(car)
+//                Log.i(TAG, "postCar: $car posted")
+//                _carResponse.value = "postCar: $car posted"
+//            } catch (e: Exception) {
+//                _carResponse.value = e.message.toString()
+//            }
+//        }
+//    }
 
     fun deleteCarItem(carId: Int) {
         viewModelScope.launch {

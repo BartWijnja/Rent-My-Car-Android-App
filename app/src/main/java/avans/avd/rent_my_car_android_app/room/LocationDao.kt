@@ -8,16 +8,16 @@ import androidx.room.Query
 @Dao
 interface LocationDao {
 
-    @Query(" SELECT * FROM locations WHERE id = :key ")
-    suspend fun getLocation(key: Int): Location
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun createLocation(item: Location): Long
-
-    @Query(" DELETE FROM locations WHERE id = :key ")
-    suspend fun deleteLocation(key: Int)
-
-    @Query(" DELETE FROM locations ")
-    suspend fun clear()
+//    @Query(" SELECT * FROM locations WHERE id = :key ")
+//    suspend fun getLocation(key: Int): Location
+//
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    suspend fun createLocation(item: Location): Long
+//
+//    @Query(" DELETE FROM locations WHERE id = :key ")
+//    suspend fun deleteLocation(key: Int)
+//
+//    @Query(" DELETE FROM locations ")
+//    suspend fun clear()
 
 }
