@@ -7,6 +7,6 @@ import avans.avd.rent_my_car_android_app.R
 class CarSearchFragment : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_homepage)
+        setContentView(R.layout.fragment_car_search)
     }
 }
