@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RentMyCarAndroidApp" >
         <activity
-            android:name=".fragment.CarFragment"
+            android:name=".fragment.HomepageFragment"
             android:exported="true"
             >
             <intent-filter>
