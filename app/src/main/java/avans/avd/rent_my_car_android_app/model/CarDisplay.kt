@@ -7,5 +7,4 @@ data class CarDisplay(
     val location: Location?,
     val car: Car?,
     val createdAt: String?
-
 )

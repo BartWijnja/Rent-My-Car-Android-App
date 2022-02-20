@@ -1,21 +1,19 @@
 package avans.avd.rent_my_car_android_app.network.response
 
 import retrofit2.Response
-import java.lang.Exception
 
 data class BasicResponse<T>(
     val status: Status,
     val data: Response<T>?,
     val exception: Exception?
 ) {
-
     // Make a BasicResponse out of the API request for error handling
     companion object {
         fun <T> success(data: Response<T>): BasicResponse<T> {
             return BasicResponse(
                 status = Status.Success,
                 data = data,
-                exception = null
+                exception = null,
             )
         }
 

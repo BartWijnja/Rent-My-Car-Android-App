@@ -1,31 +1,46 @@
 package avans.avd.rent_my_car_android_app.ui.login
 
 import android.app.Activity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
-import avans.avd.rent_my_car_android_app.databinding.ActivityLoginBinding
-
+import androidx.annotation.StringRes
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import avans.avd.rent_my_car_android_app.R
+import avans.avd.rent_my_car_android_app.databinding.FragmentLoginBinding
+import avans.avd.rent_my_car_android_app.viewmodel.LoginViewModel
+import avans.avd.rent_my_car_android_app.viewmodel.UserViewModel
+import avans.avd.rent_my_car_android_app.viewmodel.factory.LoginViewModelFactory
 
-class LoginActivity : AppCompatActivity() {
-
+/**
+ * A simple [Fragment] subclass.
+ * Use the [LoginFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class LoginFragment : Fragment() {
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
     private lateinit var loginViewModel: LoginViewModel
-private lateinit var binding: ActivityLoginBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-     binding = ActivityLoginBinding.inflate(layoutInflater)
-     setContentView(binding.root)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val username = binding.username
         val password = binding.password
@@ -35,7 +50,7 @@ private lateinit var binding: ActivityLoginBinding
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
 
-        loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
+        loginViewModel.loginFormState.observe(viewLifecycleOwner, Observer {
             val loginState = it ?: return@Observer
 
             // disable login button unless both username / password is valid
@@ -45,11 +60,11 @@ private lateinit var binding: ActivityLoginBinding
                 username.error = getString(loginState.usernameError)
             }
             if (loginState.passwordError != null) {
-               password.error = getString(loginState.passwordError)
+                password.error = getString(loginState.passwordError)
             }
         })
 
-        loginViewModel.loginResult.observe(this@LoginActivity, Observer {
+        loginViewModel.loginResult.observe(viewLifecycleOwner, Observer {
             val loginResult = it ?: return@Observer
 
             loading.visibility = View.GONE
@@ -59,10 +74,6 @@ private lateinit var binding: ActivityLoginBinding
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
             }
-            setResult(Activity.RESULT_OK)
-
-            //Complete and destroy login activity once successful
-            finish()
         })
 
         username.afterTextChanged {
@@ -85,7 +96,8 @@ private lateinit var binding: ActivityLoginBinding
                     EditorInfo.IME_ACTION_DONE ->
                         loginViewModel.login(
                             username.text.toString(),
-                            password.text.toString()
+                            password.text.toString(),
+                            findNavController(),
                         )
                 }
                 false
@@ -93,7 +105,7 @@ private lateinit var binding: ActivityLoginBinding
 
             login.setOnClickListener {
                 loading.visibility = View.VISIBLE
-                loginViewModel.login(username.text.toString(), password.text.toString())
+                loginViewModel.login(username.text.toString(), password.text.toString(), findNavController())
             }
         }
     }
@@ -103,14 +115,19 @@ private lateinit var binding: ActivityLoginBinding
         val displayName = model.displayName
         // TODO : initiate successful logged in experience
         Toast.makeText(
-            applicationContext,
+            context,
             "$welcome $displayName",
             Toast.LENGTH_LONG
         ).show()
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
-        Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, errorString, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
 

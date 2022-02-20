@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Rent-My-Car-Android-App</string>
+    <string name="app_name">Rent My Car</string>
     <string name="api_base_href">https://obscure-stream-81565.herokuapp.com</string>
 
     <!-- Strings related to login -->
@@ -18,11 +18,9 @@
     <string name="post">POST</string>
     <string name="get">GET</string>
     <string name="currently_rented_cars">Currently rented cars</string>
-<<<<<<< HEAD
     <string name="select">Select</string>
     <string name="rent">Rent</string>
     <string name="select_location">Select Location</string>
-=======
->>>>>>> 730f59f (making homepage - needs work on constraints)
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
