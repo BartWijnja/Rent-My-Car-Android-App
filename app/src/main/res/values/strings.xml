@@ -24,4 +24,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Strings related to spinner -->
+    <string-array name="hq_location_selection_list">
+        <item>Choose a Location</item>
+        <item>HQ Utrecht</item>
+        <item>HQ Amsterdam</item>
+        <item>HQ Breda</item>
+        <item>HQ Groningen</item>
+        <item>HQ Goes</item>
+        <item>HQ Arnhem</item>
+    </string-array>
+
 </resources>
