@@ -22,6 +22,22 @@
         tools:layhout="@layout/fragment_home">
 
         <action android:id="@+id/action_HomeFragment_to_LoginFragment" app:destination="@id/LoginFragment" />
+        <action android:id="@+id/action_HomeFragment_to_CarCategoryFragment" app:destination="@+id/CarCategoryFragment"/>
+        <action android:id="@+id/action_HomeFragment_to_CarListFragment" app:destination="@+id/CarListFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/CarCategoryFragment"
+        android:name="avans.avd.rent_my_car_android_app.ui.car_fragments.CarCategoryFragment"
+        android:label="Car Category Fragment"
+        tools:layout="@layout/fragment_car_catergory">
+    </fragment>
+
+    <fragment
+        android:id="@+id/CarListFragment"
+        android:name="avans.avd.rent_my_car_android_app.ui.car_fragments.CarListFragment"
+        android:label="Car List Fragment"
+        tools:layout="@layout/fragment_car_list">
     </fragment>
 
 </navigation>

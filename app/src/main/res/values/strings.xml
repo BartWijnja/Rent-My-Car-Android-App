@@ -23,8 +23,23 @@
     <string name="select_location">Select Location</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_all">Get all</string>
+    <string name="fcev">FCEV</string>
+    <string name="ice">ICE</string>
+    <string name="bev">BEV</string>
+    <string name="cars_by_category">Cars by category</string>
+    <string name="search_car_by_name">Search car by name</string>
+    <string name="back">Back</string>
+    <string name="show_cars">show cars</string>
+    <string name="get_all_by_type">get all by type</string>
 
     <!-- Strings related to spinner -->
+    <string-array name="car_type_selection_list">
+        <item>BEV</item>
+        <item>ICE</item>
+        <item>FCEV</item>
+    </string-array>
+
     <string-array name="hq_location_selection_list">
         <item>Choose a Location</item>
         <item>HQ Utrecht</item>

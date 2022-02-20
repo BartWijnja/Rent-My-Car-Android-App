@@ -1,37 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/home_text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello home fragment"
-        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toTopOf="@id/barrier1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@mipmap/ic_rmc_logo_round" />
+
+    <ImageView
+        android:id="@+id/menuIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@id/barrier1"
+        app:layout_constraintEnd_toStartOf="@id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_menu_icon_rmc" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="127dp" />
 
     <Button
         android:id="@+id/button_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
-        app:layout_constraintStart_toStartOf="@id/home_text"
-        app:layout_constraintTop_toBottomOf="@id/home_text"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/back"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@id/barrier1"
+        app:layout_constraintTop_toBottomOf="@id/barrier1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/currently_rented_cars"
+        app:layout_constraintStart_toStartOf="@id/scrollView1"
+        app:layout_constraintBottom_toTopOf="@id/scrollView1"
+        android:layout_marginStart="40dp"/>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="411dp"
+        android:layout_height="173dp"
+        app:layout_constraintBottom_toTopOf="@+id/searchView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_car_by_name"
+        app:layout_constraintStart_toStartOf="@id/searchView"
+        app:layout_constraintBottom_toTopOf="@id/searchView"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="40dp"/>
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_get_all"
+        app:layout_constraintTop_toBottomOf="@id/scrollView1"/>
 
     <Button
         android:id="@+id/button_get_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get all"
-        app:layout_constraintLeft_toRightOf="@id/button_home"
-        app:layout_constraintTop_toBottomOf="@id/button_home"
-        android:layout_marginTop="100dp"/>
+        android:text="@string/get_all"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/get_by_type"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintBottom_toBottomOf="parent"
+ />
+
+    <Button
+        android:id="@+id/get_by_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/get_all_by_type"
+        app:layout_constraintStart_toEndOf="@id/button_get_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintBottom_toBottomOf="parent"
+ />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

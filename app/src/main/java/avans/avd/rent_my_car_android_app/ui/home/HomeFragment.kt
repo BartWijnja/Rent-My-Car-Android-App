@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.databinding.FragmentHomeBinding
+import avans.avd.rent_my_car_android_app.viewmodel.CarViewModel
 import avans.avd.rent_my_car_android_app.viewmodel.UserViewModel
 
 /**
@@ -22,9 +23,13 @@ class HomeFragment : Fragment() {
     private val userViewModel: UserViewModel by lazy {
         ViewModelProvider(this)[UserViewModel::class.java]
     }
+    private val carViewModel: CarViewModel by lazy {
+        ViewModelProvider(this)[CarViewModel::class.java]
+    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -43,8 +48,13 @@ class HomeFragment : Fragment() {
         }
 
         binding.buttonGetAll.setOnClickListener {
-            userViewModel.findAll()
+            findNavController().navigate(R.id.action_HomeFragment_to_CarListFragment)
         }
+
+        binding.getByType.setOnClickListener {
+            findNavController().navigate(R.id.action_HomeFragment_to_CarCategoryFragment)
+        }
+
     }
 
     override fun onDestroyView() {
