@@ -1,6 +1,5 @@
 package avans.avd.rent_my_car_android_app.ui.login
 
-import android.app.Activity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -18,7 +17,6 @@ import androidx.navigation.fragment.findNavController
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.databinding.FragmentLoginBinding
 import avans.avd.rent_my_car_android_app.viewmodel.LoginViewModel
-import avans.avd.rent_my_car_android_app.viewmodel.UserViewModel
 import avans.avd.rent_my_car_android_app.viewmodel.factory.LoginViewModelFactory
 
 /**
