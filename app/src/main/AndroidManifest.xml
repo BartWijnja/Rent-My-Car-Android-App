@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".RentMyCarApplication"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RentMyCarAndroidApp" >
         <activity
-            android:name=".activity.CarActivity"
+            android:name=".MainActivity"
             android:exported="true"
             >
             <intent-filter>

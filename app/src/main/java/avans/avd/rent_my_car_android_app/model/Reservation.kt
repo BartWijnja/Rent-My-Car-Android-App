@@ -7,6 +7,5 @@ data class Reservation(
     val daysReserved: Int,
     val user: User,
     val carDisplay: CarDisplay,
-    val createdAt: String
-
+    val createdAt: String?
 )
