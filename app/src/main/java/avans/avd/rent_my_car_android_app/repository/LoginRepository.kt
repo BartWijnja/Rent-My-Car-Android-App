@@ -1,6 +1,7 @@
 package avans.avd.rent_my_car_android_app.repository
 
 import avans.avd.rent_my_car_android_app.model.LoggedInUser
+import avans.avd.rent_my_car_android_app.network.Network
 import avans.avd.rent_my_car_android_app.ui.login.data.LoginDataSource
 import avans.avd.rent_my_car_android_app.util.Result
 
