@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/ic_launcher_round" />
+        android:src="@mipmap/ic_rmc_logo_round" />
 
     <ImageView
         android:id="@+id/menuIcon"
