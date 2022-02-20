@@ -1,6 +1,6 @@
 package avans.avd.rent_my_car_android_app.network.response
 
-data class CarResponse(
+data class CarResponse (
     val id: Long,
     val brand: String,
     val brandType: String,

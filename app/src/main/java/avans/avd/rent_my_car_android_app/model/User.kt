@@ -1,6 +1,6 @@
 package avans.avd.rent_my_car_android_app.model
 
-data class User(
+data class User (
     val id: Long,
     val firstName: String,
     val lastName: String,
@@ -11,7 +11,7 @@ data class User(
     val iban: String,
     val userRole: String,
     val location: Location,
-    val createdAt: String,
     val enabled: Boolean,
-    val locked: Boolean
+    val locked: Boolean,
+    val createdAt: String?
 )

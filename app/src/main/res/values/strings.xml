@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Rent-My-Car-Android-App</string>
+    <string name="app_name">Rent My Car</string>
     <string name="api_base_href">https://obscure-stream-81565.herokuapp.com</string>
 
     <!-- Strings related to login -->
@@ -21,5 +21,7 @@
     <string name="select">Select</string>
     <string name="rent">Rent</string>
     <string name="select_location">Select Location</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

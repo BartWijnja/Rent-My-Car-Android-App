@@ -8,5 +8,5 @@ data class Location(
     val city: String,
     val country: String,
     val locationType: String,
-    val createdAt: String
+    val createdAt: String?
 )
