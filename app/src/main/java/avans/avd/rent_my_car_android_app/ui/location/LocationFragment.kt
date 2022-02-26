@@ -4,36 +4,47 @@ import android.Manifest
 import android.content.pm.PackageManager
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import avans.avd.rent_my_car_android_app.R
+import avans.avd.rent_my_car_android_app.databinding.FragmentLocationBinding
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import kotlinx.android.synthetic.main.fragment_location.*
 
-class LocationFragment : AppCompatActivity(), OnMapReadyCallback {
+class LocationFragment : Fragment(){
     private var mMapView: MapView? = null
     private lateinit var mMap: GoogleMap
-    private val LOCATION_PERMISSION_REQUEST = 1
+    private var _binding: FragmentLocationBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_location)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentLocationBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         var mapViewBundle: Bundle? = null
         if (savedInstanceState != null) {
             mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY)
         }
-        mMapView = findViewById<View>(R.id.map_view_location) as MapView
+        mMapView = binding.mapViewLocation
         mMapView!!.onCreate(mapViewBundle)
-        mMapView!!.getMapAsync(this)
 
-        sp_locations.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.spLocations.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 when(position) {
@@ -53,16 +64,6 @@ class LocationFragment : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    public override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        var mapViewBundle = outState.getBundle(MAPVIEW_BUNDLE_KEY)
-        if (mapViewBundle == null) {
-            mapViewBundle = Bundle()
-            outState.putBundle(MAPVIEW_BUNDLE_KEY, mapViewBundle)
-        }
-        mMapView!!.onSaveInstanceState(mapViewBundle)
-    }
-
     override fun onResume() {
         super.onResume()
         mMapView!!.onResume()
@@ -78,9 +79,8 @@ class LocationFragment : AppCompatActivity(), OnMapReadyCallback {
         mMapView!!.onStop()
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
+    fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        getLocationAccess()
 
         mMap.addMarker(MarkerOptions().position(LatLng(52.08955234572531, 5.109965441115019)).title("HQ Utrecht"))
         mMap.addMarker(MarkerOptions().position(LatLng(52.37919726315386, 4.900437200645117)).title("HQ Amsterdam"))
@@ -88,38 +88,6 @@ class LocationFragment : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(LatLng(53.21102650654341, 6.5645861252665325)).title("HQ Groningen"))
         mMap.addMarker(MarkerOptions().position(LatLng(51.49865972369122, 3.889089642954602)).title("HQ Goes"))
         mMap.addMarker(MarkerOptions().position(LatLng(51.984000926031385, 5.9015619098965235)).title("HQ Arnhem"))
-    }
-
-    private fun getLocationAccess() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            mMap.isMyLocationEnabled = true
-        } else ActivityCompat.requestPermissions(
-            this,
-            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-            LOCATION_PERMISSION_REQUEST
-        )
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == LOCATION_PERMISSION_REQUEST) {
-            if (grantResults.contains(PackageManager.PERMISSION_GRANTED)) {
-                if (ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    return
-                }
-                mMap.isMyLocationEnabled = true
-            } else {
-                Toast.makeText(this, "User has not granted location access permission", Toast.LENGTH_LONG).show()
-                finish()
-            }
-        }
     }
 
     override fun onPause() {

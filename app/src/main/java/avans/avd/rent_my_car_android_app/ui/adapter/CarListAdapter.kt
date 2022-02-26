@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.network.response.CarResponse
-import kotlinx.android.synthetic.main.item_car.view.*
 
 class CarListAdapter(
         var carResponse: List<CarResponse>
@@ -20,13 +19,13 @@ class CarListAdapter(
     }
 
     override fun onBindViewHolder(holder: CarListViewHolder, position: Int) {
-        holder.itemView.apply {
-            brand.text = carResponse[position].brand
-            brand_type.text = carResponse[position].brandType
-            model.text = carResponse[position].model
-            price.text = carResponse[position].price.toString()
-            car_type.text = carResponse[position].carType
-        }
+//        holder.itemView.apply {
+//            brand.text = carResponse[position].brand
+//            brand_type.text = carResponse[position].brandType
+//            model.text = carResponse[position].model
+//            price.text = carResponse[position].price.toString()
+//            car_type.text = carResponse[position].carType
+//        }
     }
 
     override fun getItemCount(): Int {

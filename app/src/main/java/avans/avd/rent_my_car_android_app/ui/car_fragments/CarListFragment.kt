@@ -11,17 +11,17 @@ import androidx.recyclerview.widget.RecyclerView
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.databinding.FragmentCarListBinding
 import avans.avd.rent_my_car_android_app.ui.adapter.CarListAdapter
+import avans.avd.rent_my_car_android_app.ui.adapter.CustomAdapter
+import avans.avd.rent_my_car_android_app.viewmodel.CarListViewModel
 import avans.avd.rent_my_car_android_app.viewmodel.CarViewModel
-import kotlinx.android.synthetic.main.fragment_car_list.*
 
 
 class CarListFragment : Fragment() {
     private var _binding: FragmentCarListBinding? = null
     private val binding get() = _binding!!
-    private val carViewModel: CarViewModel by lazy {
-        ViewModelProvider(this)[CarViewModel::class.java]
-    }
-
+//    private val carViewModel: CarViewModel by lazy {
+//        ViewModelProvider(this)[CarViewModel::class.java]
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,17 +35,35 @@ class CarListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rv_all_cars.apply {
+        // getting the recyclerview by its id
+        val recyclerview = binding.recyclerviewCarlist
 
-            carViewModel.carResult.observe(viewLifecycleOwner){ cars ->
-                println("DIT KOMT BINNEN")
+        // this creates a vertical layout Manager
+        recyclerview.layoutManager = LinearLayoutManager(activity)
+
+        // ArrayList of class ItemsViewModel
+        val data = ArrayList<CarListViewModel>()
+
+        // This loop will create 20 Views containing
+        data.add(CarListViewModel("brand", "brandType", "model", "40.0000", "FCEV"))
+        data.add(CarListViewModel("brand", "brandType", "model", "40.0000", "FCEV"))
+        data.add(CarListViewModel("brand", "brandType", "model", "40.0000", "FCEV"))
+        data.add(CarListViewModel("brand", "brandType", "model", "40.0000", "FCEV"))
+        data.add(CarListViewModel("brand", "brandType", "model", "40.0000", "FCEV"))
+        data.add(CarListViewModel("brand", "brandType", "model", "40.0000", "FCEV"))
+        data.add(CarListViewModel("brand", "brandType", "model", "40.0000", "FCEV"))
 
 
-                val recyclerView: RecyclerView = view.findViewById(R.id.rv_all_cars)
-                val adapter = CarListAdapter(cars)
-                recyclerView.layoutManager = LinearLayoutManager(activity)
-                recyclerView.adapter = adapter
-            }
-        }
+//         This will pass the ArrayList to our Adapter
+        val adapter = CustomAdapter(data)
+
+//         Setting the Adapter with the recyclerview
+        recyclerview.adapter = adapter
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
