@@ -1,19 +1,11 @@
 package avans.avd.rent_my_car_android_app.ui.location
 
-import android.Manifest
-import android.content.pm.PackageManager
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.databinding.FragmentLocationBinding
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng

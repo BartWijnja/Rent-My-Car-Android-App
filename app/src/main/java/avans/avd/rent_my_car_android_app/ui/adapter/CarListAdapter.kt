@@ -3,32 +3,47 @@ package avans.avd.rent_my_car_android_app.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.network.response.CarResponse
 
-class CarListAdapter(
-        var carResponse: List<CarResponse>
-    ) : RecyclerView.Adapter<CarListAdapter.CarListViewHolder>() {
+class CarListAdapter(private val mList: List<CarResponse>?) : RecyclerView.Adapter<CarListAdapter.ViewHolder>() {
 
-    inner class CarListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    // create new views
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        // inflates the card_view_design view
+        // that is used to hold list item
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_car, parent, false)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarListViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_car, parent, false)
-        return CarListViewHolder(view)
+        return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CarListViewHolder, position: Int) {
-//        holder.itemView.apply {
-//            brand.text = carResponse[position].brand
-//            brand_type.text = carResponse[position].brandType
-//            model.text = carResponse[position].model
-//            price.text = carResponse[position].price.toString()
-//            car_type.text = carResponse[position].carType
-//        }
+    // binds the list items to a view
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+        val carListViewModel = mList!![position]
+
+        // sets the text to the textview from our itemHolder class
+        holder.brand.text = carListViewModel.brand
+        holder.brandType.text = carListViewModel.brandType
+        holder.model.text = carListViewModel.model
+        holder.price.text = carListViewModel.price.toString()
+        holder.carType.text = carListViewModel.carType
     }
 
+    // return the number of the items in the list
     override fun getItemCount(): Int {
-        return carResponse.size
+        return mList!!.size
+    }
+
+    // Holds the views for adding it to image and text
+    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+        val brand: TextView = itemView.findViewById(R.id.brand)
+        val brandType: TextView = itemView.findViewById(R.id.brand_type)
+        val model: TextView = itemView.findViewById(R.id.model)
+        val price: TextView = itemView.findViewById(R.id.price)
+        val carType: TextView = itemView.findViewById(R.id.car_type)
     }
 }

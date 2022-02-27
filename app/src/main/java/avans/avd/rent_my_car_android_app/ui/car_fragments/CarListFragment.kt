@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.databinding.FragmentCarListBinding
-import avans.avd.rent_my_car_android_app.ui.adapter.CustomAdapter
+import avans.avd.rent_my_car_android_app.ui.adapter.CarListAdapter
 import avans.avd.rent_my_car_android_app.viewmodel.CarViewModel
 
 class CarListFragment : Fragment() {
@@ -43,7 +43,7 @@ class CarListFragment : Fragment() {
                 recyclerview.layoutManager = LinearLayoutManager(activity)
 
                 // This will pass the ArrayList to our Adapter
-                val adapter = CustomAdapter(cars)
+                val adapter = CarListAdapter(cars)
 
                 // Setting the Adapter with the recyclerview
                 recyclerview.adapter = adapter

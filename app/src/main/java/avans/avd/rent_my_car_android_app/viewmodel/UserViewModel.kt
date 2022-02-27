@@ -14,13 +14,6 @@ class UserViewModel: ViewModel() {
     private val _userLoginLiveData = MutableLiveData<LoginResponse?>()
     val userLoginLiveData: LiveData<LoginResponse?> = _userLoginLiveData
 
-    fun userLogin(username: String, password: String) {
-        viewModelScope.launch {
-            val response = userRepository.login(username, password)
-            _userLoginLiveData.postValue(response)
-        }
-    }
-
     fun findAll() {
         viewModelScope.launch {
             val response = userRepository.findAll()
