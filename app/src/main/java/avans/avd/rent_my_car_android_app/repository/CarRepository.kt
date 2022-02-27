@@ -8,4 +8,9 @@ class CarRepository {
         val request = Network.carClient.findAll()
         return request.body()
     }
+
+    suspend fun findByCarType(type: String): List<CarResponse>? {
+        val request = Network.carClient.findByCarType(type)
+        return request.body()
+    }
 }
