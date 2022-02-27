@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.databinding.FragmentHomeBinding
-import avans.avd.rent_my_car_android_app.viewmodel.CarViewModel
-import avans.avd.rent_my_car_android_app.viewmodel.UserViewModel
+import avans.avd.rent_my_car_android_app.viewmodel.LoginViewModel
+import avans.avd.rent_my_car_android_app.viewmodel.factory.LoginViewModelFactory
 
 /**
  * A simple [Fragment] subclass.
@@ -20,6 +20,7 @@ import avans.avd.rent_my_car_android_app.viewmodel.UserViewModel
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var loginViewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,11 +34,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonHome.setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_LoginFragment)
-        }
+        loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
+            .get(LoginViewModel::class.java)
 
         binding.buttonHome.setOnClickListener {
+            loginViewModel.logout()
             findNavController().navigate(R.id.action_HomeFragment_to_LoginFragment)
         }
 
@@ -48,7 +49,6 @@ class HomeFragment : Fragment() {
         binding.getByType.setOnClickListener {
             findNavController().navigate(R.id.action_HomeFragment_to_CarCategoryFragment)
         }
-
     }
 
     override fun onDestroyView() {

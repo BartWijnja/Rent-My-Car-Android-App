@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import avans.avd.rent_my_car_android_app.network.response.CarResponse
 import avans.avd.rent_my_car_android_app.repository.CarRepository
-import avans.avd.rent_my_car_android_app.util.Result
 import kotlinx.coroutines.launch
 
 class CarViewModel: ViewModel() {
@@ -21,4 +20,3 @@ class CarViewModel: ViewModel() {
         }
     }
 }
-

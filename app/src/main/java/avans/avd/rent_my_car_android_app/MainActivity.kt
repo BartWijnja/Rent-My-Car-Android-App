@@ -2,7 +2,6 @@ package avans.avd.rent_my_car_android_app
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -11,7 +10,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import avans.avd.rent_my_car_android_app.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
