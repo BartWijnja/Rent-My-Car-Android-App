@@ -9,10 +9,8 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.databinding.FragmentCarListBinding
-import avans.avd.rent_my_car_android_app.ui.adapter.CustomAdapter
 import avans.avd.rent_my_car_android_app.viewmodel.CarViewModel
 
 class CarListFragment : Fragment() {
@@ -38,11 +36,8 @@ class CarListFragment : Fragment() {
             if (cars == null) {
                 Toast.makeText(activity, R.string.network_call_failed, Toast.LENGTH_SHORT).show()
             } else {
-                // getting the recyclerview by its id
-                val listView = binding.listviewCarlist
 
-//                // this creates a vertical layout Manager
-//                listView.layoutManager = LinearLayoutManager(activity)
+                val listView = binding.listviewCarlist
 
                 val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1,
                     cars.map {
@@ -68,13 +63,6 @@ class CarListFragment : Fragment() {
                         return false
                     }
                 })
-
-//                // This will pass the ArrayList to our Adapter
-//                val adapter = CustomAdapter(cars)
-//
-//                // Setting the Adapter with the recyclerview
-//                recyclerview.adapter = adapter
-
             }
         }
 
