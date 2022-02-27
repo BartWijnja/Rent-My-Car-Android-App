@@ -33,6 +33,8 @@
     <string name="back">Back</string>
     <string name="show_cars">show cars</string>
     <string name="get_all_by_type">get all by type</string>
+    <string name="close">close</string>
+    <string name="open">open</string>
 
     <!-- Strings related to spinner -->
     <string-array name="car_type_selection_list">
