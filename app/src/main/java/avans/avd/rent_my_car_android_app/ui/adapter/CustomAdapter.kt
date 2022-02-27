@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import avans.avd.rent_my_car_android_app.R
+import avans.avd.rent_my_car_android_app.network.response.CarResponse
 import avans.avd.rent_my_car_android_app.viewmodel.CarListViewModel
 
-class CustomAdapter(private val mList: List<CarListViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val mList: List<CarResponse>?) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,7 +24,7 @@ class CustomAdapter(private val mList: List<CarListViewModel>) : RecyclerView.Ad
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val carListViewModel = mList[position]
+        val carListViewModel = mList!![position]
 
         // sets the text to the textview from our itemHolder class
         holder.brand.text = carListViewModel.brand
@@ -35,7 +36,7 @@ class CustomAdapter(private val mList: List<CarListViewModel>) : RecyclerView.Ad
 
     // return the number of the items in the list
     override fun getItemCount(): Int {
-        return mList.size
+        return mList!!.size
     }
 
     // Holds the views for adding it to image and text

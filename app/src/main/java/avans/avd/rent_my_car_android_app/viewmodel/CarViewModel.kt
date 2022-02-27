@@ -17,11 +17,7 @@ class CarViewModel: ViewModel() {
     fun findAll() {
         viewModelScope.launch {
             val response = carRepository.findAll()
-            println(response)
-
-            if (response is Result.Success<*>) {
-                _carResult.postValue(response!!)
-            }
+            _carResult.postValue(response!!)
         }
     }
 }
