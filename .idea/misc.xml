@@ -32,8 +32,9 @@
         <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/activity_main.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/content_main.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/fragment_car_catergory.xml" value="0.2695035460992908" />
-        <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/fragment_car_list.xml" value="0.5541666666666667" />
-        <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/fragment_home.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/fragment_car_list.xml" value="0.2695035460992908" />
+        <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/fragment_car_list_by_name.xml" value="0.2695035460992908" />
+        <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/fragment_home.xml" value="0.196048632218845" />
         <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/fragment_location.xml" value="0.2695035460992908" />
         <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/fragment_login.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/bartw/StudioProjects/Rent-My-Car-Android-App/app/src/main/res/layout/item_car.xml" value="0.1" />

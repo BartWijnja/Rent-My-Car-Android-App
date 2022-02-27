@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.databinding.FragmentCarListBinding
-import avans.avd.rent_my_car_android_app.ui.adapter.CarListAdapter
 import avans.avd.rent_my_car_android_app.viewmodel.CarViewModel
 
 class CarListFragment : Fragment() {
@@ -36,21 +36,38 @@ class CarListFragment : Fragment() {
             if (cars == null) {
                 Toast.makeText(activity, R.string.network_call_failed, Toast.LENGTH_SHORT).show()
             } else {
-                // getting the recyclerview by its id
-                val recyclerview = binding.recyclerviewCarlist
 
-                // this creates a vertical layout Manager
-                recyclerview.layoutManager = LinearLayoutManager(activity)
+                val listView = binding.listviewCarlist
 
-                // This will pass the ArrayList to our Adapter
-                val adapter = CarListAdapter(cars)
+                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1,
+                    cars.map {
+                        it.brand + " | " + it.brandType + " | " + it.model + " | €" + it.price
+                    })
 
-                // Setting the Adapter with the recyclerview
-                recyclerview.adapter = adapter
+                listView.adapter = adapter
+
+                binding.svCarByName.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(p0: String?): Boolean {
+                        //Performs search when user hit the search button on the keyboard
+//                if (bestCities.contains(p0)) {
+//                    adapter.filter.filter(p0)
+//                } else {
+//                    Toast.makeText(this@MainActivity, "No match found", Toast.LENGTH_SHORT).show()
+//                }
+                        return false
+                    }
+
+                    override fun onQueryTextChange(p0: String?): Boolean {
+                        //Start filtering the list as user start entering the characters
+                        adapter.filter.filter(p0)
+                        return false
+                    }
+                })
             }
         }
 
         carViewModel.findAll()
+
     }
 
     override fun onDestroyView() {
