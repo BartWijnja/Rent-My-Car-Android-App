@@ -8,4 +8,8 @@ class CarClient (private val carService: CarService): BaseClient() {
     suspend fun findAll(): Response<List<CarResponse>> {
         return carService.findAll()
     }
+
+    suspend fun findByCarType(type: String): Response<List<CarResponse>> {
+        return carService.findByCarType(type)
+    }
 }

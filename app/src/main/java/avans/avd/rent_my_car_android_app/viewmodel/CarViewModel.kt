@@ -19,4 +19,11 @@ class CarViewModel: ViewModel() {
             _carResult.postValue(response!!)
         }
     }
+
+    fun findByCarType(type: String) {
+        viewModelScope.launch {
+            val response = carRepository.findByCarType(type)
+            _carResult.postValue(response!!)
+        }
+    }
 }
