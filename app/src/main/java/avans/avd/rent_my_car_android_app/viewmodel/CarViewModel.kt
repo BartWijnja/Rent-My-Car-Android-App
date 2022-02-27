@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import avans.avd.rent_my_car_android_app.network.response.CarResponse
 import avans.avd.rent_my_car_android_app.repository.CarRepository
-import avans.avd.rent_my_car_android_app.util.Result
 import kotlinx.coroutines.launch
 
 class CarViewModel: ViewModel() {
@@ -17,6 +16,13 @@ class CarViewModel: ViewModel() {
     fun findAll() {
         viewModelScope.launch {
             val response = carRepository.findAll()
+            _carResult.postValue(response!!)
+        }
+    }
+
+    fun findByCarType(type: String) {
+        viewModelScope.launch {
+            val response = carRepository.findByCarType(type)
             _carResult.postValue(response!!)
         }
     }
