@@ -20,12 +20,6 @@ import avans.avd.rent_my_car_android_app.viewmodel.UserViewModel
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val userViewModel: UserViewModel by lazy {
-        ViewModelProvider(this)[UserViewModel::class.java]
-    }
-    private val carViewModel: CarViewModel by lazy {
-        ViewModelProvider(this)[CarViewModel::class.java]
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
