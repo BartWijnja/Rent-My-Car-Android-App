@@ -35,6 +35,8 @@
     <string name="get_all_by_type">get all by type</string>
     <string name="close">close</string>
     <string name="open">open</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Strings related to spinner -->
     <string-array name="car_type_selection_list">

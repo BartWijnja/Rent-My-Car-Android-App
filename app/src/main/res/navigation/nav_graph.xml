@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/LoginFragment"
         android:name="avans.avd.rent_my_car_android_app.ui.login.LoginFragment"
-        android:label="Login Fragment"
+        android:label="Login"
         tools:layout="@layout/fragment_login">
 
         <action android:id="@+id/action_LoginFragment_to_HomeFragment" app:destination="@id/HomeFragment" />
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/HomeFragment"
         android:name="avans.avd.rent_my_car_android_app.ui.home.HomeFragment"
-        android:label="Home Fragment"
+        android:label="Home"
         tools:layhout="@layout/fragment_home">
 
         <action android:id="@+id/action_HomeFragment_to_LoginFragment" app:destination="@id/LoginFragment" />
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/CarCategoryFragment"
         android:name="avans.avd.rent_my_car_android_app.ui.car_fragments.CarCategoryFragment"
-        android:label="Car Category Fragment"
+        android:label="Car Category"
         tools:layout="@layout/fragment_car_catergory">
         <action
             android:id="@+id/action_CarCategoryFragment_to_HomeFragment"
@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/CarListFragment"
         android:name="avans.avd.rent_my_car_android_app.ui.car_fragments.CarListFragment"
-        android:label="Car List Fragment"
+        android:label="Car List"
         tools:layout="@layout/fragment_car_list">
         <action
             android:id="@+id/action_CarListFragment_to_HomeFragment"
