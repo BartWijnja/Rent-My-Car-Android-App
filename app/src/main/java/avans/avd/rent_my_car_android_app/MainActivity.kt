@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         }
 
         this.switchDarkTheme.setOnCheckedChangeListener { _, value ->
-            if (!this.switchDarkTheme.isChecked) {
+            if (!this.switchAutoTheme.isChecked) {
                 when (value) {
                     true -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                     false -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -108,8 +108,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             Sensor.TYPE_LIGHT -> {
                 if (this.switchAutoTheme.isChecked) {
                     val lux = event?.values[0]
-
-                    this.switchDarkTheme.isChecked = false
 
                     if (lux > 30000) {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
