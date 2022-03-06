@@ -49,6 +49,9 @@ class HomeFragment : Fragment() {
         binding.getByType.setOnClickListener {
             findNavController().navigate(R.id.action_HomeFragment_to_CarCategoryFragment)
         }
+        binding.buttonMaps.setOnClickListener{
+            findNavController().navigate(R.id.action_HomeFragment_to_MapsFragment)
+        }
     }
 
     override fun onDestroyView() {

@@ -6,24 +6,29 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
-import avans.avd.rent_my_car_android_app.databinding.FragmentLocationBinding
-import com.google.android.gms.maps.*
+import avans.avd.rent_my_car_android_app.databinding.FragmentMapsBinding
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class LocationFragment : Fragment(){
+class MapsFragment : Fragment() {
+
     private var mMapView: MapView? = null
     private lateinit var mMap: GoogleMap
-    private var _binding: FragmentLocationBinding? = null
-    private val binding get() = _binding!!
+    private var _locationBinding: FragmentMapsBinding? = null
+    private val locationBinding get() = _locationBinding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentLocationBinding.inflate(inflater, container, false)
-        return binding.root
+    ): View {
+        _locationBinding = FragmentMapsBinding.inflate(inflater, container, false)
+
+        return locationBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,10 +38,13 @@ class LocationFragment : Fragment(){
         if (savedInstanceState != null) {
             mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY)
         }
-        mMapView = binding.mapViewLocation
+        mMapView = locationBinding.mapViewLocation
         mMapView!!.onCreate(mapViewBundle)
-
-        binding.spLocations.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        mMapView!!.getMapAsync {
+            googleMap -> mMap = googleMap
+            onMapReady(mMap)
+        }
+        locationBinding.spLocations.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 when(position) {
@@ -54,6 +62,7 @@ class LocationFragment : Fragment(){
 
             }
         }
+
     }
 
     override fun onResume() {
@@ -71,7 +80,7 @@ class LocationFragment : Fragment(){
         mMapView!!.onStop()
     }
 
-    fun onMapReady(googleMap: GoogleMap) {
+    private fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
         mMap.addMarker(MarkerOptions().position(LatLng(52.08955234572531, 5.109965441115019)).title("HQ Utrecht"))
@@ -95,6 +104,11 @@ class LocationFragment : Fragment(){
     override fun onLowMemory() {
         super.onLowMemory()
         mMapView!!.onLowMemory()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _locationBinding = null
     }
 
     companion object {
