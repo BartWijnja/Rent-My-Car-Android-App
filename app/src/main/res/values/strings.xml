@@ -1,40 +1,38 @@
 <resources>
-    <string name="app_name">Rent My Car</string>
-    <string name="api_base_href">https://obscure-stream-81565.herokuapp.com</string>
+    <string name="app_name" translatable="false">Rent My Car</string>
+    <string name="api_base_href" translatable="false">https://obscure-stream-81565.herokuapp.com</string>
 
     <!-- Strings related to login -->
     <string name="prompt_username">Username</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="welcome">Welcome!</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="result_of_request">result of request</string>
+    <string name="result_of_request">Result of request</string>
 
     <!-- Strings related to API -->
-    <string name="delete">DELETE</string>
-    <string name="post">POST</string>
-    <string name="get">GET</string>
+    <string name="delete" translatable="false">DELETE</string>
+    <string name="post" translatable="false">POST</string>
+    <string name="get" translatable="false">GET</string>
     <string name="currently_rented_cars">Currently rented cars</string>
     <string name="select">Select</string>
     <string name="rent">Rent</string>
     <string name="select_location">Select Location</string>
     <string name="network_call_failed">Network call failed</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="get_all">Get all</string>
-    <string name="fcev">FCEV</string>
-    <string name="ice">ICE</string>
-    <string name="bev">BEV</string>
+    <string name="get_all">All available cars</string>
+    <string name="fcev" translatable="false">FCEV</string>
+    <string name="ice" translatable="false">ICE</string>
+    <string name="bev" translatable="false">BEV</string>
     <string name="cars_by_category">Cars by category</string>
     <string name="search_car_by_name">Search car by name</string>
     <string name="back">Back</string>
-    <string name="show_cars">show cars</string>
-    <string name="get_all_by_type">get all by type</string>
-    <string name="close">close</string>
-    <string name="open">open</string>
+    <string name="show_cars">Show cars</string>
+    <string name="get_all_by_type">Search car by engine type</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
