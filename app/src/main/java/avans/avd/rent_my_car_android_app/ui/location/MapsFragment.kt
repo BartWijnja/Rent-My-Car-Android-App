@@ -1,29 +1,39 @@
 package avans.avd.rent_my_car_android_app.ui.location
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import avans.avd.rent_my_car_android_app.databinding.FragmentLocationBinding
-import com.google.android.gms.maps.*
+import avans.avd.rent_my_car_android_app.databinding.FragmentMapsBinding
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class LocationFragment : Fragment(){
+class MapsFragment : Fragment() {
+
     private var mMapView: MapView? = null
     private lateinit var mMap: GoogleMap
-    private var _binding: FragmentLocationBinding? = null
-    private val binding get() = _binding!!
+    private var _locationBinding: FragmentMapsBinding? = null
+    private val locationBinding get() = _locationBinding!!
+    private val LOCATION_PERMISSION_REQUEST = 1
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentLocationBinding.inflate(inflater, container, false)
-        return binding.root
+    ): View {
+        _locationBinding = FragmentMapsBinding.inflate(inflater, container, false)
+
+        return locationBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,10 +43,14 @@ class LocationFragment : Fragment(){
         if (savedInstanceState != null) {
             mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY)
         }
-        mMapView = binding.mapViewLocation
+        mMapView = locationBinding.mapViewLocation
         mMapView!!.onCreate(mapViewBundle)
-
-        binding.spLocations.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        mMapView!!.getMapAsync {
+            googleMap -> mMap = googleMap
+            onMapReady(mMap)
+            getLocationAccess()
+        }
+        locationBinding.spLocations.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 when(position) {
@@ -54,6 +68,7 @@ class LocationFragment : Fragment(){
 
             }
         }
+
     }
 
     override fun onResume() {
@@ -71,7 +86,7 @@ class LocationFragment : Fragment(){
         mMapView!!.onStop()
     }
 
-    fun onMapReady(googleMap: GoogleMap) {
+    private fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
         mMap.addMarker(MarkerOptions().position(LatLng(52.08955234572531, 5.109965441115019)).title("HQ Utrecht"))
@@ -80,6 +95,16 @@ class LocationFragment : Fragment(){
         mMap.addMarker(MarkerOptions().position(LatLng(53.21102650654341, 6.5645861252665325)).title("HQ Groningen"))
         mMap.addMarker(MarkerOptions().position(LatLng(51.49865972369122, 3.889089642954602)).title("HQ Goes"))
         mMap.addMarker(MarkerOptions().position(LatLng(51.984000926031385, 5.9015619098965235)).title("HQ Arnhem"))
+    }
+
+    private fun getLocationAccess() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.isMyLocationEnabled = true
+        } else ActivityCompat.requestPermissions(
+            requireActivity(),
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+            LOCATION_PERMISSION_REQUEST
+        )
     }
 
     override fun onPause() {
@@ -95,6 +120,11 @@ class LocationFragment : Fragment(){
     override fun onLowMemory() {
         super.onLowMemory()
         mMapView!!.onLowMemory()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _locationBinding = null
     }
 
     companion object {

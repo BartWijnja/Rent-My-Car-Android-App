@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                 R.id.LoginFragment,
                 R.id.HomeFragment,
                 R.id.CarListFragment,
-                R.id.CarCategoryFragment
+                R.id.CarCategoryFragment,
+                R.id.MapsFragment,
             ),
             drawerLayout
         )

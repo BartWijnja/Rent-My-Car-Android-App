@@ -37,6 +37,7 @@
     <string name="open">open</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="maps">Maps</string>
 
     <!-- Strings related to spinner -->
     <string-array name="car_type_selection_list">
