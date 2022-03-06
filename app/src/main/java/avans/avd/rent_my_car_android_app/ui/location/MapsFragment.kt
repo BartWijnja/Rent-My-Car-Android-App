@@ -1,10 +1,14 @@
 package avans.avd.rent_my_car_android_app.ui.location
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import avans.avd.rent_my_car_android_app.databinding.FragmentMapsBinding
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -19,6 +23,7 @@ class MapsFragment : Fragment() {
     private lateinit var mMap: GoogleMap
     private var _locationBinding: FragmentMapsBinding? = null
     private val locationBinding get() = _locationBinding!!
+    private val LOCATION_PERMISSION_REQUEST = 1
 
 
     override fun onCreateView(
@@ -43,6 +48,7 @@ class MapsFragment : Fragment() {
         mMapView!!.getMapAsync {
             googleMap -> mMap = googleMap
             onMapReady(mMap)
+            getLocationAccess()
         }
         locationBinding.spLocations.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
@@ -89,6 +95,16 @@ class MapsFragment : Fragment() {
         mMap.addMarker(MarkerOptions().position(LatLng(53.21102650654341, 6.5645861252665325)).title("HQ Groningen"))
         mMap.addMarker(MarkerOptions().position(LatLng(51.49865972369122, 3.889089642954602)).title("HQ Goes"))
         mMap.addMarker(MarkerOptions().position(LatLng(51.984000926031385, 5.9015619098965235)).title("HQ Arnhem"))
+    }
+
+    private fun getLocationAccess() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.isMyLocationEnabled = true
+        } else ActivityCompat.requestPermissions(
+            requireActivity(),
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+            LOCATION_PERMISSION_REQUEST
+        )
     }
 
     override fun onPause() {
