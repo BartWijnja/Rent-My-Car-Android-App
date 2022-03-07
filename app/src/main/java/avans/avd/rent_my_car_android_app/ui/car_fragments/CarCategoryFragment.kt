@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import avans.avd.rent_my_car_android_app.R
 import avans.avd.rent_my_car_android_app.databinding.FragmentCarCatergoryBinding
-import avans.avd.rent_my_car_android_app.ui.adapter.CarListAdapter
 import avans.avd.rent_my_car_android_app.viewmodel.CarViewModel
 
 class CarCategoryFragment : Fragment() {
@@ -40,17 +39,14 @@ class CarCategoryFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                // getting the recyclerview by its id
-                val recyclerview = binding.recyclerCarCategory
+                val listView = binding.listCarCategory
 
-                // this creates a vertical layout Manager
-                recyclerview.layoutManager = LinearLayoutManager(activity)
+                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1,
+                    cars.map {
+                        it.brand + " | " + it.brandType + " | " + it.model + " | €" + it.price
+                    })
 
-                // This will pass the ArrayList to our Adapter
-                val adapter = CarListAdapter(cars)
-
-                // Setting the Adapter with the recyclerview
-                recyclerview.adapter = adapter
+                listView.adapter = adapter
             }
         }
 
@@ -73,6 +69,8 @@ class CarCategoryFragment : Fragment() {
 
             }
         }
+
+        carViewModel.findByCarType("BEV")
     }
 
     override fun onDestroyView() {
