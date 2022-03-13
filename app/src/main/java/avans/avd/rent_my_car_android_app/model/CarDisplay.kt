@@ -6,5 +6,5 @@ data class CarDisplay(
     val available: Int,
     val location: Location?,
     val car: Car?,
-    val createdAt: String?
+    val createdAt: String? = ""
 )

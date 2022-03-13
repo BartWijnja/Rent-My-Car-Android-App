@@ -15,6 +15,9 @@ interface CarService {
     @GET("/cars/name/{name}")
     suspend fun findByName(@Path("name") name: String): Response<List<CarResponse>>
 
+    @GET("/cars/type/{type}")
+    suspend fun findByCarType(@Path("type") type: String): Response<List<CarResponse>>
+
     @POST("/cars")
     suspend fun post(@Body car: Car): Response<CarResponse>
 

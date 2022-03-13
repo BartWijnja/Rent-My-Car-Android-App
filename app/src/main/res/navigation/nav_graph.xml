@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/LoginFragment"
         android:name="avans.avd.rent_my_car_android_app.ui.login.LoginFragment"
-        android:label="Login Fragment"
+        android:label="Login"
         tools:layout="@layout/fragment_login">
 
         <action android:id="@+id/action_LoginFragment_to_HomeFragment" app:destination="@id/HomeFragment" />
@@ -18,10 +18,64 @@
     <fragment
         android:id="@+id/HomeFragment"
         android:name="avans.avd.rent_my_car_android_app.ui.home.HomeFragment"
-        android:label="Home Fragment"
+        android:label="Home"
         tools:layhout="@layout/fragment_home">
 
         <action android:id="@+id/action_HomeFragment_to_LoginFragment" app:destination="@id/LoginFragment" />
+        <action android:id="@+id/action_HomeFragment_to_CarCategoryFragment" app:destination="@+id/CarCategoryFragment"/>
+        <action android:id="@+id/action_HomeFragment_to_CarListFragment" app:destination="@+id/CarListFragment"/>
+        <action android:id="@+id/action_HomeFragment_to_MapsFragment" app:destination="@+id/MapsFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CarCategoryFragment"
+        android:name="avans.avd.rent_my_car_android_app.ui.car_fragments.CarCategoryFragment"
+        android:label="Car Category"
+        tools:layout="@layout/fragment_car_catergory">
+        <action
+            android:id="@+id/action_CarCategoryFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_CarCategoryFragment_to_ReservationFragment"
+            app:destination="@id/ReservationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/CarListFragment"
+        android:name="avans.avd.rent_my_car_android_app.ui.car_fragments.CarListFragment"
+        android:label="Car List"
+        tools:layout="@layout/fragment_car_list">
+        <action
+            android:id="@+id/action_CarListFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_CarListFragment_to_ReservationFragment"
+            app:destination="@id/ReservationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/MapsFragment"
+        android:name="avans.avd.rent_my_car_android_app.ui.location.MapsFragment"
+        android:label="Maps"
+        tools:layout="@layout/fragment_maps">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ReservationFragment"
+        android:name="avans.avd.rent_my_car_android_app.ui.reservation.ReservationFragment"
+        android:label="Reservation"
+        tools:layout="@layout/fragment_maps">
+        <action
+            android:id="@+id/action_ReservationFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment"
+            />
+        <argument
+            android:name="carDisplayId"
+            app:argType="long"
+            android:defaultValue="0L"
+            />
     </fragment>
 
 </navigation>

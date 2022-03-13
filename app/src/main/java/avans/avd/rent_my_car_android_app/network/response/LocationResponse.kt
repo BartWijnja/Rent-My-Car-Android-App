@@ -10,5 +10,8 @@ data class LocationResponse (
     val city: String,
     val country: String,
     val locationType: LocationType,
+    val latitude: Double,
+    val longitude: Double,
+    val title: String,
     val createdAt: String?
 )

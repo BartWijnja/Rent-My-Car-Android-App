@@ -1,5 +1,6 @@
 package avans.avd.rent_my_car_android_app.network.service
 
+import avans.avd.rent_my_car_android_app.enums.CarType
 import avans.avd.rent_my_car_android_app.model.CarDisplay
 import avans.avd.rent_my_car_android_app.network.response.CarDisplayResponse
 import retrofit2.Response
@@ -10,7 +11,15 @@ interface CarDisplayService {
     suspend fun findAll(): Response<List<CarDisplayResponse>>
 
     @GET("/car-displays/{id}")
-    suspend fun findById(@Path("id") id: Long): Response<CarDisplay>
+    suspend fun findById(@Path("id") id: Long): Response<CarDisplayResponse>
+
+    @GET("/car-displays/{locationId}/display")
+    suspend fun findAllByLocation(@Path("locationId") locationId: Long): Response<List<CarDisplayResponse>>
+
+    @GET("/car-displays/{locationId}/display/type/{carType}")
+    suspend fun findByDisplayWithType(
+        @Path("locationId") locationId: Long,
+        @Path("carType") carType: CarType): Response<List<CarDisplayResponse>?>
 
     @GET("/car-displays/{locationId}/display/{carId}")
     suspend fun findByCarType(@Path("locationId") locationId: Long, @Path("carId") carId: Long): Response<CarDisplayResponse>

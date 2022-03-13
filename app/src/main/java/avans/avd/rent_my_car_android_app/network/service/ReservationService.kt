@@ -12,6 +12,9 @@ interface ReservationService {
     @GET("/reservations/{id}")
     suspend fun findById(@Path("id") id: Long): Response<ReservationResponse>
 
+    @GET("/reservations/{userId}/reservation")
+    suspend fun findByUser(@Path("userId") userId: Long): Response<List<ReservationResponse>>
+
     @GET("/reservations/{userId}/reservation/{carDisplayId}")
     suspend fun findByReservation(@Path("userId") userId: Long, @Path("carDisplayId") carDisplayId: Long): Response<ReservationResponse>
 

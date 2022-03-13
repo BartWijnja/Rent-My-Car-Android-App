@@ -1,6 +1,7 @@
 package avans.avd.rent_my_car_android_app.network.service
 
 import avans.avd.rent_my_car_android_app.enums.CarType
+import avans.avd.rent_my_car_android_app.enums.LocationType
 import avans.avd.rent_my_car_android_app.model.Location
 import avans.avd.rent_my_car_android_app.network.response.LocationResponse
 import retrofit2.Response
@@ -14,7 +15,7 @@ interface LocationService {
     suspend fun findById(@Path("id") id: Long): Response<LocationResponse>
 
     @GET("/locations/type/{type}")
-    suspend fun findByType(@Path("type") type: CarType): Response<List<LocationResponse>>
+    suspend fun findByType(@Path("type") type: LocationType): Response<List<LocationResponse>>
 
     @POST("/locations")
     suspend fun post(@Body location: Location): Response<LocationResponse>

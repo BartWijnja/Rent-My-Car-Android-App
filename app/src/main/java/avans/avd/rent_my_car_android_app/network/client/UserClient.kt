@@ -8,11 +8,15 @@ import retrofit2.Response
 
 class UserClient (private val userService: UserService): BaseClient() {
     suspend fun login(username: String, password: String): Response<LoginResponse> {
-        val loginRequest: LoginRequest = LoginRequest(username, password)
+        val loginRequest = LoginRequest(username, password)
         return userService.login(loginRequest)
     }
 
     suspend fun findAll(): Response<List<UserResponse>> {
         return userService.findAll()
+    }
+
+    suspend fun find(id: Long): Response<UserResponse> {
+        return userService.findById(id)
     }
 }

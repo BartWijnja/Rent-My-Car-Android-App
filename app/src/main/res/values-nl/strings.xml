@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prompt_username">Gebruikersnaam</string>
+    <string name="prompt_password">Wachtwoord</string>
+    <string name="action_sign_in">Log in of registreer</string>
+    <string name="action_sign_in_short">Log in</string>
+    <string name="welcome">Welkom!</string>
+    <string name="invalid_username">Geen geldige gebruikersnaam</string>
+    <string name="invalid_password">Wachtwoord moet meer dan 5 tekens bevatten</string>
+    <string name="login_failed">Aanmelden mislukt</string>
+    <string name="result_of_request">Resultaat van verzoek</string>
+    <string name="currently_rented_cars">Momenteel gehuurde auto\'s</string>
+    <string name="select">Selecteer</string>
+    <string name="rent">Huur</string>
+    <string name="select_location">Selecteer een locatie</string>
+    <string name="network_call_failed">Netwerkoproep mislukt</string>
+    <string name="get_all">Alle beschikbare auto\'s</string>
+    <string name="cars_by_category">Auto\'s per categorie</string>
+    <string name="search_car_by_name">Zoek auto op naam</string>
+    <string name="back">Terug</string>
+    <string name="show_cars">Laat auto\'s zien</string>
+    <string name="get_all_by_type">"Zoek auto op motortype "</string>
+    <string name="close">Sluit</string>
+    <string name="open">Open</string>
+    <string name="navigation_drawer_open">" Navigatielade openen"</string>
+    <string name="navigation_drawer_close">" Navigatielade sluiten"</string>
+    <string name="maps">Kaarten</string>
+    <string name="seats">Zitplaatsen</string>
+    <string name="engine">Motor</string>
+    <string name="price_per_day">Dagprijs</string>
+    <string name="total_price">Totale prijs</string>
+    <string name="reserve">Reserveer</string>
+    <string name="reservation_already_done">Reservering al gedaan</string>
+</resources>

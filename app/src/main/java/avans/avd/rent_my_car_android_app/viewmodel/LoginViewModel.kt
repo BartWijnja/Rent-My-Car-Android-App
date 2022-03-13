@@ -28,9 +28,15 @@ class LoginViewModel(private val mainRepository: LoginRepository) : ViewModel() 
             if (result is Result.Success) {
                 _loginResult.value = LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
                 navController.navigate(R.id.action_LoginFragment_to_HomeFragment)
+            } else {
+                _loginResult.value = LoginResult(error = R.string.login_failed)
             }
+        }
+    }
 
-            _loginResult.value = LoginResult(error = R.string.login_failed)
+    fun logout() {
+        viewModelScope.launch {
+            mainRepository.logout()
         }
     }
 
