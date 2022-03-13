@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/reservation_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/purple_700"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/reservation_seats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/reservation_title"
+        app:layout_constraintStart_toStartOf="@id/reservation_title"
+        app:layout_constraintTop_toBottomOf="@id/reservation_title" />
+
+    <TextView
+        android:id="@+id/reservation_engine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/reservation_seats"
+        app:layout_constraintStart_toStartOf="@id/reservation_seats"
+        app:layout_constraintTop_toBottomOf="@id/reservation_seats" />
+
+    <TextView
+        android:id="@+id/reservation_price_per_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/reservation_engine"
+        app:layout_constraintStart_toStartOf="@id/reservation_engine"
+        app:layout_constraintTop_toBottomOf="@id/reservation_engine" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/days_slider"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:valueFrom="1"
+        android:valueTo="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reservation_price_per_day" />
+
+    <TextView
+        android:id="@+id/reservation_total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/days_slider"
+        app:layout_constraintStart_toStartOf="@id/days_slider"
+        app:layout_constraintTop_toBottomOf="@id/days_slider" />
+
+    <TextView
+        android:id="@+id/reservation_already_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/reservation_total_price"
+        app:layout_constraintStart_toStartOf="@id/reservation_total_price"
+        app:layout_constraintTop_toBottomOf="@id/reservation_total_price" />
+
+    <Button
+        android:id="@+id/reserve_button"
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="64dp"
+        android:text="@string/reserve"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservation_total_price"
+        app:layout_constraintVertical_bias="0.2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

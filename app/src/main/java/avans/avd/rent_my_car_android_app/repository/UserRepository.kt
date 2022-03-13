@@ -24,4 +24,9 @@ class UserRepository {
         val request = Network.userClient.findAll()
         return request.body()
     }
+
+    suspend fun find(id: Long): UserResponse? {
+        val request = Network.userClient.find(id)
+        return request.body()
+    }
 }

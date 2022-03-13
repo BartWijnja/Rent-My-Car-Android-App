@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_CarCategoryFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_CarCategoryFragment_to_ReservationFragment"
+            app:destination="@id/ReservationFragment" />
     </fragment>
 
     <fragment
@@ -46,6 +49,9 @@
         <action
             android:id="@+id/action_CarListFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_CarListFragment_to_ReservationFragment"
+            app:destination="@id/ReservationFragment" />
     </fragment>
 
     <fragment
@@ -54,6 +60,22 @@
         android:label="Maps"
         tools:layout="@layout/fragment_maps">
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/ReservationFragment"
+        android:name="avans.avd.rent_my_car_android_app.ui.reservation.ReservationFragment"
+        android:label="Reservation"
+        tools:layout="@layout/fragment_maps">
+        <action
+            android:id="@+id/action_ReservationFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment"
+            />
+        <argument
+            android:name="carDisplayId"
+            app:argType="long"
+            android:defaultValue="0L"
+            />
     </fragment>
 
 </navigation>

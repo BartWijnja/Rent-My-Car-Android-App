@@ -1,5 +1,7 @@
 package avans.avd.rent_my_car_android_app.model
 
+import avans.avd.rent_my_car_android_app.enums.UserRole
+
 data class User (
     val id: Long,
     val firstName: String,
@@ -9,7 +11,7 @@ data class User (
     val email: String,
     val password: String,
     val iban: String,
-    val userRole: String,
+    val userRole: UserRole,
     val location: Location,
     val enabled: Boolean,
     val locked: Boolean,

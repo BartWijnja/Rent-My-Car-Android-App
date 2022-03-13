@@ -57,6 +57,15 @@
         app:layout_constraintBottom_toTopOf="@id/scrollView1"
         app:layout_constraintStart_toStartOf="@id/scrollView1" />
 
+    <ListView
+        android:id="@+id/listview_rented_cars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        tools:listitem="@layout/item_car" />
+
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="411dp"
@@ -72,6 +81,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
+    <TextView
+        android:id="@+id/location_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/button_get_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/button_get_all"

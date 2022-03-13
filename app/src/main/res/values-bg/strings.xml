@@ -24,4 +24,11 @@
     <string name="navigation_drawer_close">"Затвори страничното меню "</string>
     <string name="prompt_username">Потребителско име</string>
     <string name="prompt_password">Парола</string>
+    <string name="maps">Карти</string>
+    <string name="seats">Седалки</string>
+    <string name="engine">Мотор</string>
+    <string name="price_per_day">Дневна цена</string>
+    <string name="total_price">Обща цена</string>
+    <string name="reserve">Резервирай</string>
+    <string name="reservation_already_done">Резервацията вече е направена</string>
 </resources>

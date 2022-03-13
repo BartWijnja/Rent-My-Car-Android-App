@@ -36,6 +36,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="maps">Maps</string>
+    <string name="seats">Seats</string>
+    <string name="engine">Engine</string>
+    <string name="price_per_day">Price per day</string>
+    <string name="total_price">Total price</string>
+    <string name="reserve">Reserve</string>
+    <string name="reservation_already_done">Reservation already done</string>
 
     <!-- Strings related to spinner -->
     <string-array name="car_type_selection_list">

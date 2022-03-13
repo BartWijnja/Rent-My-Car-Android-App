@@ -15,4 +15,8 @@ class UserClient (private val userService: UserService): BaseClient() {
     suspend fun findAll(): Response<List<UserResponse>> {
         return userService.findAll()
     }
+
+    suspend fun find(id: Long): Response<UserResponse> {
+        return userService.findById(id)
+    }
 }

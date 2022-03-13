@@ -24,4 +24,11 @@
     <string name="open">Open</string>
     <string name="navigation_drawer_open">" Navigatielade openen"</string>
     <string name="navigation_drawer_close">" Navigatielade sluiten"</string>
+    <string name="maps">Kaarten</string>
+    <string name="seats">Zitplaatsen</string>
+    <string name="engine">Motor</string>
+    <string name="price_per_day">Dagprijs</string>
+    <string name="total_price">Totale prijs</string>
+    <string name="reserve">Reserveer</string>
+    <string name="reservation_already_done">Reservering al gedaan</string>
 </resources>
