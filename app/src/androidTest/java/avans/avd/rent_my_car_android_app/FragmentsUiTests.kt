@@ -1,6 +1,7 @@
 package avans.avd.rent_my_car_android_app
 
 import android.view.View
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
@@ -65,7 +66,7 @@ class FragmentsUiTests {
         onView(withId(R.id.password)).perform(typeText("qwerty"))
         onView(withId(R.id.login)).perform(click())
 
-        onView(isRoot()).perform(waitFor(750))
+        onView(isRoot()).perform(waitFor(1000))
 
         onView(withText("Home"))
             .check(matches(isDisplayed()))
@@ -77,11 +78,21 @@ class FragmentsUiTests {
         onView(withId(R.id.password)).perform(typeText("qwerty"))
         onView(withId(R.id.login)).perform(click())
 
-        onView(isRoot()).perform(waitFor(750))
+        onView(isRoot()).perform(waitFor(1000))
+
+        onView(withId(R.id.button_maps)).perform(click())
+        onView(isRoot()).perform(waitFor(1000))
+
+        onView(withId(R.id.sp_locations)).perform((click()))
+        onData(allOf(`is`(instanceOf(String::class.java)), `is`("HQ Utrecht"))).perform(click())
+        onView(isRoot()).perform(waitFor(1000))
+
+        Espresso.pressBack()
+        onView(isRoot()).perform(waitFor(1000))
 
         onView(withId(R.id.button_get_all)).perform(click())
 
-        onView(isRoot()).perform(waitFor(750))
+        onView(isRoot()).perform(waitFor(3000))
 
         onData(Matchers.hasToString(startsWith("Honda")))
             .inAdapterView(withId(R.id.listview_carlist)).atPosition(0)
@@ -94,18 +105,28 @@ class FragmentsUiTests {
         onView(withId(R.id.password)).perform(typeText("qwerty"))
         onView(withId(R.id.login)).perform(click())
 
-        onView(isRoot()).perform(waitFor(750))
+        onView(isRoot()).perform(waitFor(1000))
+
+        onView(withId(R.id.button_maps)).perform(click())
+        onView(isRoot()).perform(waitFor(1000))
+
+        onView(withId(R.id.sp_locations)).perform((click()))
+        onData(allOf(`is`(instanceOf(String::class.java)), `is`("HQ Utrecht"))).perform(click())
+        onView(isRoot()).perform(waitFor(1000))
+
+        Espresso.pressBack()
+        onView(isRoot()).perform(waitFor(1000))
 
         onView(withId(R.id.get_by_type)).perform(click())
 
-        onView(isRoot()).perform(waitFor(750))
+        onView(isRoot()).perform(waitFor(3000))
 
         onView(withId(R.id.sp_car_type)).perform(click())
         onData(allOf(`is`(instanceOf(String::class.java)), `is`("FCEV"))).perform(click())
 
-        onView(isRoot()).perform(waitFor(750))
+        onView(isRoot()).perform(waitFor(1000))
 
-        onData(Matchers.hasToString(startsWith("Hyundai")))
+        onData(Matchers.hasToString(startsWith("Peugeot")))
             .inAdapterView(withId(R.id.list_car_category)).atPosition(0)
             .perform(click())
     }
